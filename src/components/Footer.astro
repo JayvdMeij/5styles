@@ -1,0 +1,124 @@
+---
+import Button from './Button.astro';
+---
+
+<footer class="footer">
+	<div class="inner">
+		<div class="headline-wrap">
+			<h2 class="headline" data-reveal>DESIGN IS<br />COMMUNICATION.</h2>
+			<div class="stamp">
+				<span>Make it count.</span>
+			</div>
+		</div>
+
+		<div class="bottom">
+			<div class="newsletter">
+				<div class="newsletter-label">ONE POSTER STYLE IN YOUR INBOX, EVERY FRIDAY.</div>
+				<form class="newsletter-form">
+					<input type="email" placeholder="you@studio.com" required />
+					<Button variant="accent" type="submit">SEND IT</Button>
+				</form>
+			</div>
+			<div class="meta">
+				FIVE STYLES. INFINITE STORIES.<br />
+				SET IN ARCHIVO BLACK, OSWALD &amp; CAVEAT.<br />
+				&#169; 2026 POSTER LANGUAGE
+			</div>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.footer {
+		position: relative;
+		background: var(--ink);
+		color: var(--paper);
+		padding: 84px 40px 40px;
+		overflow: hidden;
+	}
+
+	.inner {
+		max-width: 1360px;
+		margin: 0 auto;
+	}
+
+	.headline-wrap {
+		position: relative;
+		display: inline-block;
+	}
+
+	.headline {
+		font-family: var(--font-display);
+		font-size: clamp(46px, 9.4vw, 140px);
+		line-height: 0.84;
+		letter-spacing: -0.05em;
+		margin: 0;
+	}
+
+	.stamp {
+		position: relative;
+		display: inline-block;
+		margin-top: 14px;
+		padding: 6px 26px;
+		font-family: var(--font-hand);
+		font-weight: 700;
+		font-size: clamp(30px, 4.6vw, 62px);
+		color: var(--accent);
+	}
+	.stamp::before {
+		content: '';
+		position: absolute;
+		inset: -6px -4px;
+		border: 3px solid var(--accent);
+		border-radius: 50%;
+		transform: rotate(-2deg);
+	}
+
+	.bottom {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 40px;
+		align-items: flex-end;
+		margin-top: 56px;
+		padding-top: 34px;
+		border-top: 1.5px solid var(--hairline-dark);
+	}
+
+	.newsletter {
+		flex: 1;
+		min-width: 300px;
+	}
+	.newsletter-label {
+		font-size: 16px;
+		font-weight: 700;
+		letter-spacing: 0.02em;
+	}
+	.newsletter-form {
+		display: flex;
+		gap: 0;
+		margin-top: 16px;
+		max-width: 460px;
+	}
+	.newsletter-form input {
+		flex: 1;
+		min-width: 0;
+		background: var(--ink-2);
+		border: 1.5px solid var(--hairline-dark-2);
+		color: var(--paper);
+		font-family: var(--font-body);
+		font-size: 15px;
+		padding: 14px 16px;
+		outline: none;
+	}
+	.newsletter-form input:focus {
+		border-color: var(--accent);
+	}
+
+	.meta {
+		font-size: 12.5px;
+		line-height: 1.7;
+		font-weight: 600;
+		letter-spacing: 0.04em;
+		color: var(--muted-on-ink-3);
+	}
+</style>

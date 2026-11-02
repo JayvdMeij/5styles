@@ -1,0 +1,95 @@
+---
+interface Props {
+	items: string[];
+	separator?: string;
+	background?: 'ink' | 'accent';
+	rotation?: number;
+	duration?: number;
+	reverse?: boolean;
+}
+
+const { items, separator = '●', background = 'ink', rotation = -1, duration = 34, reverse = false } = Astro.props;
+---
+
+<div class={`marquee marquee-${background}`} style={`transform: rotate(${rotation}deg);`} data-marq>
+	<div class="track" style={`animation-duration: ${duration}s; animation-direction: ${reverse ? 'reverse' : 'normal'};`}>
+		{
+			[0, 1].map((rep) => (
+				<div class="group" aria-hidden={rep === 1}>
+					{items.map((item) => (
+						<>
+							<span>{item}</span>
+							<span class="sep">{separator}</span>
+						</>
+					))}
+				</div>
+			))
+		}
+	</div>
+</div>
+
+<style>
+	.marquee {
+		position: relative;
+		overflow: hidden;
+		width: 104%;
+		margin-left: -2%;
+	}
+	.marquee-ink {
+		background: var(--ink);
+		color: var(--paper);
+		padding: 14px 0;
+	}
+	.marquee-accent {
+		background: var(--accent);
+		color: #f7f2e7;
+		padding: 11px 0;
+	}
+
+	.track {
+		display: flex;
+		width: max-content;
+		font-family: var(--font-display);
+		white-space: nowrap;
+		animation-name: marquee-scroll;
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
+	}
+	.marquee-ink .track {
+		font-size: 30px;
+		letter-spacing: -0.01em;
+	}
+	.marquee-accent .track {
+		font-size: 22px;
+		letter-spacing: 0.01em;
+	}
+
+	.group {
+		display: flex;
+		gap: 26px;
+		padding-right: 26px;
+	}
+	.marquee-accent .group {
+		gap: 22px;
+		padding-right: 22px;
+	}
+
+	.marquee-ink .sep {
+		color: var(--accent);
+	}
+
+	@keyframes marquee-scroll {
+		from {
+			transform: translateX(0);
+		}
+		to {
+			transform: translateX(-50%);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.track {
+			animation: none;
+		}
+	}
+</style>

@@ -1,0 +1,91 @@
+---
+interface Props {
+	variant: 'anatomy' | 'timeline';
+	eyebrow: string;
+	title?: string;
+	body: string;
+}
+
+const { variant, eyebrow, title, body } = Astro.props;
+---
+
+<div class={`card card-${variant}`}>
+	{
+		variant === 'anatomy' ? (
+			<>
+				<div class="eyebrow eyebrow-anatomy">{eyebrow}</div>
+				<p class="body body-anatomy">{body}</p>
+			</>
+		) : (
+			<>
+				<div class="year">{eyebrow}</div>
+				<div class="eyebrow eyebrow-timeline">{title}</div>
+				<p class="body body-timeline">{body}</p>
+			</>
+		)
+	}
+</div>
+
+<style>
+	.card {
+		transition:
+			background-color 0.3s ease,
+			color 0.3s ease;
+	}
+
+	/* anatomy variant: dark tile, hover -> accent */
+	.card-anatomy {
+		background: var(--ink);
+		padding: 26px 22px 30px;
+	}
+	.card-anatomy:hover {
+		background: var(--accent);
+	}
+	.eyebrow-anatomy {
+		font-family: var(--font-display);
+		font-size: 15px;
+		color: var(--accent);
+		transition: color 0.3s ease;
+	}
+	.card-anatomy:hover .eyebrow-anatomy {
+		color: var(--ink);
+	}
+	.body-anatomy {
+		font-size: 14.5px;
+		line-height: 1.55;
+		margin: 12px 0 0;
+		color: var(--muted-on-ink-2);
+		transition: color 0.3s ease;
+	}
+	.card-anatomy:hover .body-anatomy {
+		color: var(--paper);
+	}
+
+	/* timeline variant: paper cell, hover -> ink */
+	.card-timeline {
+		background: var(--paper);
+		padding: 22px 20px 26px;
+	}
+	.card-timeline:hover {
+		background: var(--ink);
+		color: var(--paper);
+	}
+	.year {
+		font-family: var(--font-mono-alt);
+		font-weight: 700;
+		font-size: 34px;
+		line-height: 1;
+	}
+	.eyebrow-timeline {
+		font-size: 12.5px;
+		font-weight: 700;
+		letter-spacing: 0.05em;
+		margin-top: 6px;
+		color: var(--accent);
+	}
+	.body-timeline {
+		font-size: 14px;
+		line-height: 1.5;
+		margin: 12px 0 0;
+	}
+</style>

@@ -1,0 +1,34 @@
+:root {
+	/* paper */
+	--paper: #f2ece1;
+	--paper-2: #efe9de;
+	--paper-3: #e7e2d6;
+	--paper-4: #e7e4dd;
+
+	/* ink */
+	--ink: #16130f;
+	--ink-2: #221d17;
+	--hairline-dark: #3a342c;
+	--hairline-dark-2: #4a453d;
+
+	/* accent */
+	--accent: #d4342a;
+	--violet: #6b4f8f;
+	--note: #e9dcc0;
+	--tape: rgba(206, 186, 143, 0.85);
+
+	/* ghost / muted */
+	--ghost: #d9d0be;
+	--ghost-on-ink: #231e18;
+	--ghost-on-paper-3: #dcd5c6;
+	--muted-on-ink: #cfc7b8;
+	--muted-on-ink-2: #d8d0c1;
+	--muted-on-ink-3: #9c948a;
+
+	/* fonts */
+	--font-display: 'Archivo Black', Helvetica, sans-serif;
+	--font-body: 'Archivo', Helvetica, sans-serif;
+	--font-mono-alt: 'Oswald', sans-serif;
+	--font-hand: 'Caveat', cursive;
+	--font-psych: 'Bungee', sans-serif;
+}

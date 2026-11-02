@@ -1,0 +1,84 @@
+---
+---
+
+<div class="poster">
+	<div class="wedge-ink"></div>
+	<div class="wedge-accent"></div>
+	<div class="line line-1">К НОВОМУ</div>
+	<div class="line line-2">ИСКУССТВУ</div>
+	<div class="year">1924</div>
+	<div class="forward">ВПЕРЕД</div>
+	<div class="small">ВЫСТАВКА<br />МАСТЕРОВ<br />АВАНГАРДА</div>
+	<div class="city">МОСКВА</div>
+</div>
+
+<style>
+	.poster {
+		position: absolute;
+		inset: 0;
+		background: var(--paper-2);
+		font-family: var(--font-mono-alt);
+	}
+	.wedge-ink {
+		position: absolute;
+		inset: 0;
+		background: var(--ink);
+		clip-path: polygon(0 48%, 100% 26%, 100% 46%, 0 100%);
+	}
+	.wedge-accent {
+		position: absolute;
+		inset: 0;
+		background: var(--accent);
+		clip-path: polygon(0 26%, 100% 6%, 100% 30%, 0 50%);
+	}
+	.line {
+		position: absolute;
+		left: 8px;
+		top: 56px;
+		font-weight: 700;
+		font-size: 17px;
+		letter-spacing: 0.02em;
+		white-space: nowrap;
+		writing-mode: vertical-rl;
+		transform: rotate(180deg);
+	}
+	.line-2 {
+		left: 36px;
+		top: 50px;
+		color: var(--accent);
+	}
+	.year {
+		position: absolute;
+		right: 14px;
+		top: 16px;
+		font-weight: 600;
+		font-size: 15px;
+	}
+	.forward {
+		position: absolute;
+		left: 14px;
+		top: 212px;
+		font-weight: 700;
+		font-size: 34px;
+		line-height: 1;
+		transform: rotate(-10deg);
+		transform-origin: 0 50%;
+	}
+	.small {
+		position: absolute;
+		right: 14px;
+		bottom: 52px;
+		text-align: right;
+		font-weight: 600;
+		font-size: 15px;
+		line-height: 1.35;
+	}
+	.city {
+		position: absolute;
+		right: 14px;
+		bottom: 18px;
+		font-weight: 500;
+		font-size: 10px;
+		letter-spacing: 0.08em;
+	}
+</style>

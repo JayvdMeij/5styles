@@ -1,0 +1,100 @@
+---
+---
+
+<div class="poster">
+	<div class="blobs"></div>
+	<div class="conic"></div>
+	<div class="radial"></div>
+	<div class="vignette"></div>
+	<div class="title">COSMIC<br />DREAMS</div>
+	<div class="subtitle">LIVE IN<br />CONCERT.</div>
+	<div class="venue">JUNE 21<br />THE ECHO<br />LOS ANGELES</div>
+</div>
+
+<style>
+	.poster {
+		position: absolute;
+		inset: 0;
+		background: #1a0f16;
+		overflow: hidden;
+	}
+	.blobs {
+		position: absolute;
+		inset: -40px;
+		filter: blur(22px) saturate(1.25);
+		background:
+			radial-gradient(56% 42% at 26% 22%, #e88a1e 0%, rgba(232, 138, 30, 0) 70%),
+			radial-gradient(50% 38% at 76% 30%, #c2282a 0%, rgba(194, 40, 42, 0) 72%),
+			radial-gradient(58% 40% at 52% 56%, #5c2f7c 0%, rgba(92, 47, 124, 0) 74%),
+			radial-gradient(46% 30% at 22% 72%, #1f6a68 0%, rgba(31, 106, 104, 0) 74%),
+			radial-gradient(52% 36% at 80% 84%, #d8562a 0%, rgba(216, 86, 42, 0) 74%),
+			radial-gradient(40% 26% at 46% 90%, #efc23b 0%, rgba(239, 194, 59, 0) 76%);
+	}
+	.conic {
+		position: absolute;
+		inset: -30px;
+		background: repeating-conic-gradient(
+			from 20deg at 48% 46%,
+			#f2b52a 0deg 14deg,
+			#c2282a 14deg 30deg,
+			#5c2f7c 30deg 46deg,
+			#1f6a68 46deg 60deg
+		);
+		filter: blur(16px);
+		opacity: 0.55;
+		mix-blend-mode: soft-light;
+	}
+	.radial {
+		position: absolute;
+		inset: -20px;
+		background: repeating-radial-gradient(circle at 52% 58%, rgba(255, 255, 255, 0.16) 0 10px, rgba(0, 0, 0, 0.24) 10px 26px);
+		filter: blur(9px);
+		opacity: 0.5;
+		mix-blend-mode: overlay;
+	}
+	.vignette {
+		position: absolute;
+		inset: 0;
+		background: radial-gradient(70% 60% at 50% 50%, rgba(0, 0, 0, 0) 40%, rgba(20, 8, 14, 0.72) 100%);
+	}
+	.title {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 26px;
+		text-align: center;
+		font-family: var(--font-psych);
+		font-size: 38px;
+		line-height: 0.98;
+		letter-spacing: -0.02em;
+		color: #f4cd45;
+		text-shadow:
+			0 3px 0 #a71f22,
+			0 -2px 0 #f0e3c8;
+		transform: skewY(-3.5deg);
+	}
+	.subtitle {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 322px;
+		text-align: center;
+		font-family: var(--font-psych);
+		font-size: 21px;
+		line-height: 1.15;
+		color: #f2e6cd;
+		text-shadow: 0 2px 0 #7a1d1f;
+		transform: skewY(2deg);
+	}
+	.venue {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 34px;
+		text-align: center;
+		font-family: var(--font-display);
+		font-size: 19px;
+		line-height: 1.3;
+		color: #f4cd45;
+	}
+</style>

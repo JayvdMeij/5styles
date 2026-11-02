@@ -1,0 +1,73 @@
+---
+---
+
+<div class="poster">
+	<div class="head">
+		<div class="headline">Neue<br />Ideen<br />für ein<br />besseres<br />Morgen.</div>
+		<div class="info">Zürich<br />Design<br />Forum<span class="spacer"></span>24.–26.<br />Juni<br />2024</div>
+	</div>
+	<div class="photo" role="img" aria-label="Architecture photo"></div>
+	<div class="footer">
+		<div>Vorträge<br />Workshops<br />Ausstellung</div>
+		<div class="right">Tickets &amp; Info<br />zdf.ch<br />&#8594;</div>
+	</div>
+</div>
+
+<style>
+	.poster {
+		position: absolute;
+		inset: 0;
+		background: var(--paper-2);
+	}
+	.head {
+		position: absolute;
+		top: 22px;
+		left: 18px;
+		right: 16px;
+		display: flex;
+		gap: 12px;
+		align-items: flex-start;
+	}
+	.headline {
+		flex: 1;
+		font-size: 27px;
+		line-height: 1.1;
+		letter-spacing: -0.015em;
+	}
+	.info {
+		width: 50px;
+		flex: none;
+		font-size: 9.5px;
+		line-height: 1.45;
+		font-weight: 500;
+	}
+	.spacer {
+		display: block;
+		height: 30px;
+	}
+	.photo {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 238px;
+		bottom: 58px;
+		background:
+			linear-gradient(160deg, #9a9488 0%, #6c6a63 45%, #3c3b38 100%);
+		filter: grayscale(1) contrast(1.08);
+	}
+	.footer {
+		position: absolute;
+		left: 18px;
+		right: 16px;
+		bottom: 16px;
+		display: flex;
+		justify-content: space-between;
+		gap: 8px;
+		font-size: 9.5px;
+		line-height: 1.45;
+		font-weight: 500;
+	}
+	.right {
+		text-align: right;
+	}
+</style>

@@ -1,0 +1,823 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Button from '../components/Button.astro';
+import Marquee from '../components/Marquee.astro';
+import PosterCard from '../components/PosterCard.astro';
+import Card from '../components/Card.astro';
+
+import SwissGrid from '../components/posters/SwissGrid.astro';
+import Constructivist from '../components/posters/Constructivist.astro';
+import Psychedelic from '../components/posters/Psychedelic.astro';
+import Brutalist from '../components/posters/Brutalist.astro';
+import ZineXerox from '../components/posters/ZineXerox.astro';
+
+const styleNames = ['SWISS GRID', 'CONSTRUCTIVIST', 'PSYCHEDELIC', 'BRUTALIST', 'ZINE XEROX'];
+
+const posters = [
+	{ index: '01', label: 'SWISS GRID', rotation: -1.6, offset: 10, caption: 'Clean. Structured.<br />Clarity through grid and typography.', Comp: SwissGrid },
+	{ index: '02', label: 'CONSTRUCTIVIST', rotation: 1.1, offset: -16, caption: 'Bold. Dynamic.<br />Energy through angles and contrast.', Comp: Constructivist },
+	{ index: '03', label: 'PSYCHEDELIC', rotation: -0.8, offset: 22, caption: 'Flowing. Vibrant.<br />Emotion through color and movement.', Comp: Psychedelic },
+	{ index: '04', label: 'BRUTALIST', rotation: 1.7, offset: -8, caption: 'Raw. Unfiltered.<br />Impact through scale and roughness.', Comp: Brutalist },
+	{ index: '05', label: 'ZINE XEROX', rotation: -2.1, offset: 16, caption: 'DIY. Authentic.<br />Personality through imperfection and collage.', Comp: ZineXerox },
+];
+
+const anatomyCards = [
+	{ eyebrow: '01  THE HOOK', body: 'One element wins. Decide whether that is the type, the image, or the empty space, then let the rest lose.' },
+	{ eyebrow: '02  THE GRID', body: 'Three, six or twelve columns. Pick one before you set a single word, and break it on purpose later.' },
+	{ eyebrow: '03  THE SCALE JUMP', body: 'Two sizes that nearly match read as a mistake. Go from 12px to 120px and it reads as confidence.' },
+	{ eyebrow: '04  THE PALETTE', body: 'Paper, ink, and one voice. A third colour needs a reason and a job, not a mood board.' },
+	{ eyebrow: '05  THE TEXTURE', body: 'Grain, tape, toner, fold. Texture is what stops a clean layout from looking like a template.' },
+	{ eyebrow: '06  THE SMALL PRINT', body: 'Dates, place, price. Set it tiny, set it tight, and never let it beg for attention.' },
+];
+
+const rules = [
+	{ n: '01', accent: true, title: 'Read it from across the street.', body: 'If the message dies at four metres, the poster is decoration.' },
+	{ n: '02', accent: false, title: 'One font can carry a whole wall.', body: 'Weight and size give you more range than a second typeface ever will.' },
+	{ n: '03', accent: true, title: 'Empty space is not wasted space.', body: 'It is the only thing that makes the loud part loud.' },
+	{ n: '04', accent: false, title: 'Align everything, then move one thing.', body: 'A single deliberate misfit does the work of ten effects.' },
+	{ n: '05', accent: true, title: 'Colour is a decision, not a garnish.', body: 'Name what your accent means before you use it twice.' },
+	{ n: '06', accent: false, title: 'Print it before you love it.', body: 'Paper is honest about contrast in a way a screen is not.' },
+	{ n: '07', accent: true, title: 'Copy the masters, credit them loudly.', body: 'Influence is a lineage. Pretending otherwise is the only theft.' },
+	{ n: '08', accent: false, title: 'When in doubt, make it bigger.', body: 'Timid is the only style nobody remembers.' },
+];
+
+const timeline = [
+	{ year: '1919', label: 'CONSTRUCTIVIST', body: 'Type becomes machinery. Diagonals, red, and the idea that a poster is a job to be done.' },
+	{ year: '1957', label: 'SWISS GRID', body: 'Order as an ethic. Objective photography, ranged-left type, nothing shouting for its own sake.' },
+	{ year: '1967', label: 'PSYCHEDELIC', body: 'Legibility traded for atmosphere. If you can read it instantly, you were probably not invited.' },
+	{ year: '1977', label: 'ZINE XEROX', body: 'The photocopier as a press. Cut, paste, staple, and a distribution model of one stapler.' },
+	{ year: 'NOW', label: 'BRUTALIST', body: 'Default type, maximum scale, visible seams. A reaction to a decade of polish.' },
+];
+---
+
+<BaseLayout title="Poster Language — Five Poster Styles Every Designer Should Know">
+	<Header />
+
+	<main>
+		<section class="hero" data-anim="hero">
+			<div class="big5" data-anim="big5" aria-hidden="true">5</div>
+
+			<div class="hero-inner">
+				<h1 class="hero-line" data-anim="hero-line">POSTER<br />STYLES</h1>
+				<div class="hero-line hero-line-sub" data-anim="hero-line">EVERY DESIGNER<br />SHOULD KNOW</div>
+
+				<div class="hero-sub" data-anim="hero-sub">
+					<div class="hero-copy">
+						<div class="hero-rule"></div>
+						<p>A quick visual guide to poster language. Five approaches, one page each, no theory you cannot use before lunch.</p>
+						<div class="hero-actions">
+							<Button href="#five" variant="dark">START WITH THE FIVE</Button>
+							<Button href="#rules" variant="light" arrow="↘">READ THE RULES</Button>
+						</div>
+					</div>
+					<div class="hero-kicker">
+						<div>FIVE APPROACHES.<br />ENDLESS POSSIBILITIES.</div>
+						<div class="kicker-rule"></div>
+					</div>
+				</div>
+			</div>
+
+			<aside class="note" data-anim="note">
+				<div class="tape"></div>
+				<p>Know the style.<br />Break the rules.<br />Make it yours.</p>
+				<div class="underline underline-1"></div>
+				<div class="underline underline-2"></div>
+			</aside>
+		</section>
+
+		<Marquee items={styleNames} background="ink" rotation={-1} duration={34} />
+
+		<section id="five" class="five">
+			<div class="section-head">
+				<h2 data-reveal>THE FIVE.<br />ONE PAGE EACH.</h2>
+				<p>Every poster below is built from the same ingredients: a grid, a voice, and a decision about how loud to be. Drop your own photography into the empty frames.</p>
+			</div>
+
+			<div class="tiles" data-tiles>
+				{
+					posters.map((p) => (
+						<PosterCard index={p.index} label={p.label} caption={p.caption} rotation={p.rotation} offset={p.offset}>
+							<p.Comp />
+						</PosterCard>
+					))
+				}
+			</div>
+		</section>
+
+		<section id="anatomy" class="anatomy">
+			<div class="ghost-word" data-parallax="80" aria-hidden="true">ANATOMY</div>
+			<div class="anatomy-inner">
+				<div class="section-head">
+					<h2 data-reveal>ANATOMY OF<br />A POSTER.</h2>
+					<p>Six parts do all the work. Get them in the right order and the style takes care of itself.</p>
+				</div>
+
+				<div class="anatomy-body">
+					<div class="mock-poster">
+						<div class="mock-eyebrow">KUNSTHALLE / SAAL 2</div>
+						<div class="mock-headline">FORM<br />FOLLOWS<br />NOISE</div>
+						<div class="mock-bar"></div>
+						<p class="mock-copy">Twelve posters, one grid, no apologies. Curated by the department of loud things.</p>
+						<div class="mock-dates">14 SEP – 03 NOV<br />DAILY 10–18<br />FREE ENTRY</div>
+						<div class="mock-num">02</div>
+						<div class="mock-columns" aria-hidden="true"></div>
+					</div>
+
+					<div class="anatomy-grid" data-stagger>
+						{anatomyCards.map((c) => <Card variant="anatomy" eyebrow={c.eyebrow} body={c.body} />)}
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="rules" class="rules">
+			<div class="section-head">
+				<h2 data-reveal>EIGHT RULES.<br />BREAK SEVEN.</h2>
+				<p class="aside">Keep the one about legibility. That one is not negotiable.</p>
+			</div>
+
+			<div class="rules-grid" data-stagger>
+				{
+					rules.map((r) => (
+						<div class="rule-row" data-rule>
+							<div class:list={['rule-num', { accent: r.accent }]} data-rule-num>
+								{r.n}
+							</div>
+							<div>
+								<div class="rule-title">{r.title}</div>
+								<div class="rule-body">{r.body}</div>
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</section>
+
+		<Marquee items={['MAKE IT BIGGER', 'MAKE IT SIMPLER', 'MAKE IT YOURS']} separator="✕" background="accent" rotation={0.8} duration={28} reverse />
+
+		<section id="timeline" class="timeline">
+			<div class="section-head">
+				<h2 data-reveal>A CENTURY,<br />FIVE MOVES.</h2>
+				<p>Each style answered the one before it. The argument is still running on every wall in town.</p>
+			</div>
+
+			<div class="timeline-grid" data-stagger>
+				{timeline.map((t) => <Card variant="timeline" eyebrow={t.year} title={t.label} body={t.body} />)}
+			</div>
+		</section>
+
+		<section id="archive" class="archive">
+			<div class="ghost-word ghost-center" data-parallax="70" aria-hidden="true">ARCHIVE</div>
+			<div class="archive-inner">
+				<h2 data-reveal>THE WALL.<br />PIN YOUR OWN.</h2>
+				<p>Drag images straight onto the frames below. They stay where you drop them, grain and all.</p>
+
+				<div class="wall">
+					<div class="wall-label">NO. 07 &#183; XEROX</div>
+					<div class="wall-aside">Cheap paper, dense ink, one staple. The distribution model has not been beaten yet.</div>
+
+					<div class="frame frame-a" data-parallax="34">
+						<div class="photo photo-street" role="img" aria-label="Street shot"></div>
+					</div>
+					<div class="frame frame-b">
+						<div class="photo photo-portrait" role="img" aria-label="Portrait"></div>
+						<div class="plate">PLATE 07</div>
+					</div>
+					<div class="frame frame-c" data-parallax="46">
+						<div class="photo photo-texture" role="img" aria-label="Texture"></div>
+					</div>
+
+					<div class="sticky" data-parallax="-30">
+						<div class="tape"></div>
+						<p>Pin it up.<br />Live with it a day.<br />Then cut half of it.</p>
+					</div>
+
+					<div class="wall-headline">PAPER<br />BEATS<br />PIXELS</div>
+
+					<div class="swatches">
+						<span class="swatch swatch-accent"></span>
+						<span class="swatch swatch-ink"></span>
+						<span class="swatch swatch-violet"></span>
+						<span class="swatch swatch-paper"></span>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+</BaseLayout>
+
+<style>
+	/* Hero */
+	.hero {
+		position: relative;
+		padding: 64px 40px 0;
+		overflow: hidden;
+	}
+	.big5 {
+		position: absolute;
+		left: -2vw;
+		top: -4vw;
+		font-family: var(--font-display);
+		font-size: 46vw;
+		line-height: 0.62;
+		color: var(--accent);
+		opacity: 0.92;
+		pointer-events: none;
+		user-select: none;
+	}
+	.hero-inner {
+		position: relative;
+		max-width: 1360px;
+		margin: 0 auto;
+		padding-top: 2vw;
+	}
+	.hero-line {
+		position: relative;
+		font-family: var(--font-display);
+		font-size: clamp(56px, 11.4vw, 164px);
+		line-height: 0.82;
+		letter-spacing: -0.05em;
+		mix-blend-mode: multiply;
+		max-width: 12ch;
+		margin: 0;
+	}
+	.hero-line-sub {
+		font-size: clamp(24px, 4.7vw, 68px);
+		line-height: 0.94;
+		letter-spacing: -0.03em;
+		margin-top: 18px;
+	}
+	.hero-sub {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-end;
+		gap: 40px;
+		margin-top: 38px;
+	}
+	.hero-copy {
+		flex: 1;
+		min-width: 280px;
+	}
+	.hero-rule {
+		width: min(430px, 60vw);
+		height: 1.5px;
+		background: var(--ink);
+		margin-bottom: 18px;
+	}
+	.hero-copy p {
+		font-size: clamp(17px, 1.6vw, 22px);
+		max-width: 34ch;
+		margin: 0;
+	}
+	.hero-actions {
+		display: flex;
+		gap: 12px;
+		margin-top: 26px;
+		flex-wrap: wrap;
+	}
+	.hero-kicker {
+		flex: none;
+		width: 300px;
+	}
+	.hero-kicker div:first-child {
+		font-size: 16px;
+		font-weight: 700;
+		line-height: 1.4;
+		letter-spacing: 0.015em;
+	}
+	.kicker-rule {
+		width: 52px;
+		height: 3px;
+		margin-top: 9px;
+		background: var(--accent);
+	}
+
+	.note {
+		position: absolute;
+		right: 3vw;
+		top: 96px;
+		width: 286px;
+		height: 206px;
+		background: var(--note);
+		transform: rotate(1.4deg);
+		box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+		padding: 34px 24px 0;
+		z-index: 5;
+	}
+	.note .tape {
+		position: absolute;
+		left: 50%;
+		top: -15px;
+		width: 96px;
+		height: 30px;
+		margin-left: -48px;
+		background: var(--tape);
+		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.14);
+		transform: rotate(-2.5deg);
+	}
+	.note p {
+		font-family: var(--font-hand);
+		font-weight: 600;
+		font-size: 29px;
+		line-height: 1.55;
+		color: #241f19;
+		margin: 0;
+	}
+	.underline {
+		position: absolute;
+		height: 2px;
+		background: #241f19;
+	}
+	.underline-1 {
+		left: 96px;
+		bottom: 34px;
+		width: 104px;
+		transform: rotate(-1.5deg);
+	}
+	.underline-2 {
+		left: 104px;
+		bottom: 26px;
+		width: 88px;
+		transform: rotate(1.5deg);
+		opacity: 0.8;
+	}
+
+	/* Shared section head */
+	.section-head {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-end;
+		gap: 24px;
+		margin-bottom: 40px;
+	}
+	.section-head h2 {
+		font-family: var(--font-display);
+		line-height: 0.86;
+		letter-spacing: -0.04em;
+		flex: 1;
+		min-width: 300px;
+		margin: 0;
+	}
+	.section-head p {
+		font-size: 15px;
+		line-height: 1.55;
+		max-width: 36ch;
+		padding-bottom: 8px;
+		margin: 0;
+	}
+	.section-head p.aside {
+		font-family: var(--font-hand);
+		font-weight: 600;
+		font-size: 26px;
+		line-height: 1.3;
+		max-width: 22ch;
+		padding-bottom: 10px;
+	}
+
+	/* Five */
+	.five {
+		position: relative;
+		padding: 74px 40px 90px;
+		max-width: 1440px;
+		margin: 0 auto;
+	}
+	.five .section-head h2 {
+		font-size: clamp(38px, 6vw, 86px);
+	}
+	.tiles {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px;
+		justify-content: center;
+	}
+
+	/* Anatomy */
+	.anatomy {
+		position: relative;
+		background: var(--ink);
+		color: var(--paper);
+		padding: 86px 40px 96px;
+		overflow: hidden;
+	}
+	.ghost-word {
+		position: absolute;
+		right: -3vw;
+		top: 10px;
+		font-family: var(--font-display);
+		font-size: 20vw;
+		line-height: 0.8;
+		color: var(--ghost-on-ink);
+		pointer-events: none;
+		user-select: none;
+	}
+	.anatomy-inner {
+		position: relative;
+		max-width: 1360px;
+		margin: 0 auto;
+	}
+	.anatomy .section-head {
+		margin-bottom: 52px;
+	}
+	.anatomy .section-head h2 {
+		font-size: clamp(34px, 5.4vw, 74px);
+	}
+	.anatomy .section-head p {
+		max-width: 38ch;
+		color: var(--muted-on-ink);
+	}
+	.anatomy-body {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 44px;
+		align-items: flex-start;
+	}
+	.mock-poster {
+		position: relative;
+		width: 400px;
+		max-width: 100%;
+		height: 566px;
+		flex: none;
+		background: var(--paper-2);
+		color: var(--ink);
+		box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+	}
+	.mock-eyebrow {
+		position: absolute;
+		left: 26px;
+		top: 24px;
+		font-family: var(--font-display);
+		font-size: 13px;
+		letter-spacing: 0.08em;
+	}
+	.mock-headline {
+		position: absolute;
+		left: 24px;
+		right: 24px;
+		top: 58px;
+		font-family: var(--font-display);
+		font-size: 62px;
+		line-height: 0.86;
+		letter-spacing: -0.05em;
+	}
+	.mock-bar {
+		position: absolute;
+		left: 26px;
+		top: 330px;
+		width: 120px;
+		height: 14px;
+		background: var(--accent);
+	}
+	.mock-copy {
+		position: absolute;
+		left: 26px;
+		top: 364px;
+		right: 120px;
+		font-size: 15px;
+		line-height: 1.5;
+		margin: 0;
+	}
+	.mock-dates {
+		position: absolute;
+		left: 26px;
+		bottom: 26px;
+		font-size: 12px;
+		font-weight: 700;
+		line-height: 1.6;
+		letter-spacing: 0.02em;
+	}
+	.mock-num {
+		position: absolute;
+		right: 26px;
+		bottom: 26px;
+		text-align: right;
+		font-family: var(--font-mono-alt);
+		font-weight: 600;
+		font-size: 44px;
+		line-height: 0.9;
+	}
+	.mock-columns {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		background-image: linear-gradient(to right, rgba(212, 52, 42, 0.18) 1px, transparent 1px);
+		background-size: 66.6px 100%;
+	}
+	.anatomy-grid {
+		flex: 1;
+		min-width: 300px;
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1px;
+		background: var(--hairline-dark);
+	}
+
+	/* Rules */
+	.rules {
+		position: relative;
+		padding: 84px 40px 92px;
+		max-width: 1440px;
+		margin: 0 auto;
+	}
+	.rules .section-head h2 {
+		font-size: clamp(38px, 6.4vw, 92px);
+		letter-spacing: -0.045em;
+	}
+	.rules-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: 0 48px;
+	}
+	.rule-row {
+		display: flex;
+		gap: 20px;
+		align-items: flex-start;
+		padding: 22px 0;
+		border-top: 1.5px solid var(--ink);
+		transition: background-color 0.3s ease;
+	}
+	.rule-row:hover {
+		background: #e9e1d1;
+	}
+	.rule-row:nth-last-child(-n + 2) {
+		border-bottom: 1.5px solid var(--ink);
+	}
+	.rule-num {
+		font-family: var(--font-display);
+		font-size: 46px;
+		line-height: 0.9;
+		width: 74px;
+		flex: none;
+	}
+	.rule-num.accent {
+		color: var(--accent);
+	}
+	.rule-title {
+		font-family: var(--font-display);
+		font-size: 19px;
+		letter-spacing: -0.01em;
+	}
+	.rule-body {
+		font-size: 14.5px;
+		line-height: 1.55;
+		margin-top: 7px;
+	}
+
+	/* Timeline */
+	.timeline {
+		position: relative;
+		padding: 82px 40px 88px;
+		max-width: 1440px;
+		margin: 0 auto;
+	}
+	.timeline .section-head h2 {
+		font-size: clamp(34px, 5.6vw, 80px);
+		letter-spacing: -0.045em;
+	}
+	.timeline-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+		gap: 1.5px;
+		background: var(--ink);
+		border: 1.5px solid var(--ink);
+	}
+
+	/* Archive / Wall */
+	.archive {
+		position: relative;
+		background: var(--paper-3);
+		padding: 80px 40px 96px;
+		overflow: hidden;
+	}
+	.ghost-center {
+		left: 50%;
+		right: auto;
+		top: 40px;
+		transform: translateX(-50%);
+		font-size: 22vw;
+		color: var(--ghost-on-paper-3);
+	}
+	.archive-inner {
+		position: relative;
+		max-width: 1240px;
+		margin: 0 auto;
+	}
+	.archive-inner h2 {
+		font-family: var(--font-display);
+		font-size: clamp(30px, 4.6vw, 62px);
+		line-height: 0.9;
+		letter-spacing: -0.04em;
+		max-width: 20ch;
+		margin: 0;
+	}
+	.archive-inner > p {
+		font-size: 15px;
+		line-height: 1.55;
+		max-width: 40ch;
+		margin-top: 18px;
+	}
+
+	.wall {
+		position: relative;
+		height: 620px;
+		margin-top: 44px;
+	}
+	.wall-label {
+		position: absolute;
+		right: 26%;
+		top: 26px;
+		background: var(--ink);
+		color: var(--paper);
+		font-family: var(--font-display);
+		font-size: 13px;
+		letter-spacing: 0.08em;
+		padding: 9px 14px;
+		transform: rotate(-4deg);
+		z-index: 6;
+	}
+	.wall-aside {
+		position: absolute;
+		right: 12%;
+		bottom: 150px;
+		width: 210px;
+		font-size: 13.5px;
+		line-height: 1.55;
+		font-weight: 500;
+		transform: rotate(1.2deg);
+		border-top: 1.5px solid var(--ink);
+		border-bottom: 1.5px solid var(--ink);
+		padding: 10px 0;
+		z-index: 6;
+	}
+	.frame {
+		position: absolute;
+		box-sizing: border-box;
+	}
+	.frame-a {
+		left: 2%;
+		top: 0;
+		width: 300px;
+		height: 230px;
+		transform: rotate(-3deg);
+		background: #f7f3ea;
+		padding: 12px;
+		box-shadow: 0 12px 26px rgba(0, 0, 0, 0.2);
+	}
+	.frame-b {
+		left: 24%;
+		top: 120px;
+		width: 250px;
+		height: 320px;
+		transform: rotate(2.4deg);
+		background: var(--ink);
+		padding: 12px 12px 42px;
+		box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
+		z-index: 3;
+	}
+	.frame-c {
+		left: 46%;
+		top: 16px;
+		width: 270px;
+		height: 200px;
+		transform: rotate(-1.4deg);
+		background: #f7f3ea;
+		padding: 12px;
+		box-shadow: 0 12px 26px rgba(0, 0, 0, 0.2);
+		z-index: 2;
+	}
+	.photo {
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(150deg, #9a9488 0%, #6c6a63 45%, #3c3b38 100%);
+	}
+	.photo-street {
+		filter: grayscale(1) contrast(1.3);
+	}
+	.photo-portrait {
+		filter: grayscale(1) contrast(1.5) brightness(1.06);
+	}
+	.photo-texture {
+		filter: grayscale(1) contrast(1.35);
+	}
+	.plate {
+		position: absolute;
+		left: 12px;
+		bottom: 12px;
+		color: var(--paper);
+		font-family: var(--font-display);
+		font-size: 14px;
+		letter-spacing: 0.04em;
+	}
+	.sticky {
+		position: absolute;
+		right: 4%;
+		top: 170px;
+		width: 230px;
+		background: var(--note);
+		padding: 26px 22px 30px;
+		box-sizing: border-box;
+		transform: rotate(2.8deg);
+		box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+		z-index: 4;
+	}
+	.sticky .tape {
+		position: absolute;
+		left: 50%;
+		top: -14px;
+		width: 88px;
+		height: 28px;
+		margin-left: -44px;
+		background: var(--tape);
+		transform: rotate(-3deg);
+	}
+	.sticky p {
+		font-family: var(--font-hand);
+		font-weight: 600;
+		font-size: 25px;
+		line-height: 1.45;
+		color: #241f19;
+		margin: 0;
+	}
+	.wall-headline {
+		position: absolute;
+		left: 6%;
+		top: 424px;
+		font-family: var(--font-display);
+		font-size: clamp(40px, 7vw, 104px);
+		line-height: 0.86;
+		letter-spacing: -0.05em;
+		transform: rotate(-1.6deg);
+		z-index: 5;
+		text-shadow: 0 0 6px rgba(231, 226, 214, 0.9);
+	}
+	.swatches {
+		position: absolute;
+		right: 6%;
+		bottom: 34px;
+		display: flex;
+		gap: 6px;
+		z-index: 6;
+	}
+	.swatch {
+		width: 34px;
+		height: 64px;
+		display: block;
+	}
+	.swatch-accent {
+		background: var(--accent);
+	}
+	.swatch-ink {
+		background: var(--ink);
+	}
+	.swatch-violet {
+		background: var(--violet);
+	}
+	.swatch-paper {
+		background: var(--paper-2);
+		box-shadow: inset 0 0 0 1px var(--ink);
+	}
+
+	@media (max-width: 900px) {
+		.hero {
+			padding: 48px 20px 0;
+		}
+		.note {
+			display: none;
+		}
+		.five,
+		.rules,
+		.timeline,
+		.anatomy,
+		.archive {
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+		.wall {
+			height: auto;
+		}
+		.wall-label,
+		.wall-aside,
+		.wall-headline,
+		.swatches {
+			position: static;
+			transform: none;
+			margin: 12px 0;
+			width: auto;
+		}
+		.frame,
+		.sticky {
+			position: relative;
+			inset: auto;
+			left: auto;
+			right: auto;
+			top: auto;
+			bottom: auto;
+			transform: none;
+			margin: 12px 0;
+			width: auto;
+		}
+	}
+</style>

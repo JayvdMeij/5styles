@@ -1,0 +1,85 @@
+---
+interface Props {
+	href?: string;
+	variant?: 'dark' | 'light' | 'accent';
+	arrow?: '→' | '↘';
+	type?: 'button' | 'submit';
+}
+
+const { href, variant = 'dark', arrow = '→', type = 'button' } = Astro.props;
+const Tag = href ? 'a' : 'button';
+
+const hoverColors = { dark: '#f7f2e7', light: '#f2ece1', accent: '#16130f' } as const;
+---
+
+<Tag href={href} type={href ? undefined : type} class={`btn btn-${variant}`} data-btn={variant} data-hover-color={hoverColors[variant]}>
+	<span class="fill" data-fill aria-hidden="true"></span>
+	<span class="label" data-label><slot /></span>
+	<span class="arrow" data-arrow aria-hidden="true">{arrow}</span>
+</Tag>
+
+<style>
+	.btn {
+		position: relative;
+		overflow: hidden;
+		display: inline-flex;
+		align-items: center;
+		gap: 14px;
+		font-family: var(--font-display);
+		font-size: 14px;
+		letter-spacing: 0.02em;
+		border: none;
+		cursor: pointer;
+		text-decoration: none;
+	}
+
+	/* Initial state before GSAP takes over (also the no-JS / reduced-motion fallback) */
+	.fill {
+		position: absolute;
+		inset: 0;
+		transform: translateY(101%);
+	}
+	.label,
+	.arrow {
+		position: relative;
+	}
+
+	.btn-dark {
+		background: var(--ink);
+		color: var(--paper);
+		padding: 16px 26px;
+	}
+	.btn-dark .label,
+	.btn-dark .arrow {
+		color: var(--paper);
+	}
+	.btn-dark .fill {
+		background: var(--accent);
+	}
+
+	.btn-light {
+		border: 2px solid var(--ink);
+		color: var(--ink);
+		padding: 14px 24px;
+	}
+	.btn-light .label,
+	.btn-light .arrow {
+		color: var(--ink);
+	}
+	.btn-light .fill {
+		background: var(--ink);
+	}
+
+	.btn-accent {
+		background: var(--accent);
+		color: var(--paper);
+		padding: 14px 24px;
+	}
+	.btn-accent .label,
+	.btn-accent .arrow {
+		color: var(--paper);
+	}
+	.btn-accent .fill {
+		background: var(--paper);
+	}
+</style>
